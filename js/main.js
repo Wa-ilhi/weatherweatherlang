@@ -132,7 +132,7 @@ navigator.geolocation.getCurrentPosition(async function (position) {
         if (weatherCondition === "rain") {
             weatherImg.src = "img/rainy2.png";
             weatherImgs.src = "img/rainy2.png";
-            showWeatherAlert("Murag kaulanon bai, ayaw nalag dayun", "rain");
+            showWeatherAlert("Murag kaulanon bai, ayaw nalang og dayon", "rain");
            
         } 
         else if (weatherCondition === "clear" || weatherCondition === "clear sky") {
@@ -153,7 +153,7 @@ navigator.geolocation.getCurrentPosition(async function (position) {
             if (weatherCondition === "smoke") {
                 showWeatherAlert("🔥 Smoke alert! Limit outdoor activity", "haze");
             } else {
-                showWeatherAlert("Kaulanon bai, ayaw sa pag washing", "clouds");
+                showWeatherAlert("Dag-om na bai, tulog sa nalang", "clouds");
             }
         } 
         else if (weatherCondition === "mist" || weatherCondition === "fog") {
@@ -260,5 +260,5 @@ navigator.geolocation.getCurrentPosition(async function (position) {
 },
 () => {
     // Handle location retrieval error
-    alert("Palihug kog turn-on sa imong location services aron makuha ang imong lokasyon.");
+    alert("Palihug kog turn-on sa imong location settings aron makuha ang imong lokasyon.");
 });
