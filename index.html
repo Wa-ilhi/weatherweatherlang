@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- links -->
+    <link rel="icon" type="png" href="img/Logo1.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <!-- Title -->
+    <title>G ba mag rides?</title>
+   <style>
+  /* General Body Styling */
+  body {
+    background: linear-gradient(135deg, #f1f1f1 0%, #cfdef3 100%);
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Start Screen Container */
+  #start-screen {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 40px 30px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    border-radius: 32px;
+    max-width: 700px;
+    width: 90%;
+    animation: slideIn 0.8s ease-out;
+    flex-wrap: wrap;
+  }
+
+  /* Header Styling */
+  #start-screen h1 {
+    font-size: 2.5rem;
+    color: #1f1f1f;
+    margin: 0;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.08);
+    flex: 1 1 100%;
+    text-align: center;
+  }
+
+  /* Buttons */
+  .btn-choice {
+    padding: 14px 32px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 14px;
+    font-weight: bold;
+    background: #111;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s ease all;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-choice:hover {
+    background: #f1f1f1;
+    color: #111;
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Hidden main screen */
+  #screen {
+    display: none;
+  }
+
+  /* Slide-in animation */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+  </head>
+
+  <body>
+
+    <div id="no-popup" class="popup-overlay">
+  <div class="popup-box">
+    <h2>Unsa may rason nimo bai?</h2>
+    <p></p>
+    <button onclick="closeNoPopup()" class="btn-choice">Close</button>
+  </div>
+</div>
+
+    <!-- Initial UI Prompt -->
+    <div id="start-screen">
+      <h1>G ka mag rides?</h1>
+      <button class="btn-choice" onclick="startApp()">Oo</button>
+      <button class="btn-choice" onclick="noResponse()">Dili</button>
+    </div>
+
+    <!-- main section -->
+    <div id="screen">
+      <!-- Heading -->
+     
+
+      <!-- city name -->
+      <h3 class="city-name">Naa ka diri sa,</h3>
+      <div class="city-name">
+        <i class="fa-solid fa-location-dot"></i>
+        <h1 id="city-name">Manila</h1>
+      </div>
+
+      <!-- weather icon -->
+      <div class="weather-icon-css">
+        <img class="weather-icon" src="img/snow.png" />
+      </div>
+
+      <!-- weather details -->
+      <div class="weather-description">
+        <div class="show-metric" id="metric">0°</div>
+        <div class="weather-details">
+          <div class="weather-main" id="weather-main">Sunnen</div>
+          <div class="h-f">
+            <div class="show-humidity">H: <span id="humidity">60</span></div>
+            ||
+            <div class="show-humidity">
+              F: <span id="feels-like">60</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Today forecast -->
+      <div class="forcasts-box">
+        <div class="today-forecast">
+          <h4>TODAY</h4>
+          <div class="weather-icon-today">
+            <img class="weather-icons" src="img/sun.png" />
+          </div>
+          <div class="temp-today">
+            <span id="temp-min-today">50°</span><span>/ </span
+            ><span id="temp-max-today">55°</span>
+          </div>
+          <div class="weather-main-today" id="weather-main">Sunnen</div>
+        </div>
+
+        <!-- 5day Forecast -->
+        <div class="future-forecast">
+          <h5>WEEKLY FORECASTS</h5>
+          <div id="future-forecast-box"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/search.js"></script>
+
+    <script>
+      function startApp() {
+        document.getElementById('start-screen').style.display = 'none';
+        document.getElementById('screen').style.display = 'block';
+      }
+
+     function noResponse() {
+    document.getElementById("no-popup").style.display = "flex";
+    }   
+
+    function closeNoPopup() {
+      document.getElementById("no-popup").style.display = "none";
+    }
+
+    </script>
+
+  </body>
+</html>
